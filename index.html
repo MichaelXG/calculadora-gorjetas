@@ -1,0 +1,141 @@
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <head>
+      <title>Restaurante faz de conta</title>
+      <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><circle cx='12' cy='12' r='10' stroke='black' stroke-width='2' fill='#f8d210'/><rect x='7' y='8' width='10' height='8' rx='2' fill='#ffffff' stroke='black' stroke-width='2'/><circle cx='9' cy='12' r='1' fill='#000000'/><circle cx='15' cy='12' r='1' fill='#000000'/></svg>"
+        type="image/svg+xml"
+      />
+    </head>
+
+    <meta name="robots" content="noindex" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"
+    />
+    <link
+      rel="mask-icon"
+      href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg"
+      color="#111"
+    />
+    <link rel="canonical" href="https://codepen.io/ahmadnasr/pen/xjomGB" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i|IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Ramabhadra"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://anandchowdhary.github.io/ionicons-3-cdn/icons.css"
+      integrity="sha384-+iqgM+tGle5wS+uPwXzIjZS5v6VkqCUV7YQ/e/clzRHAxYbzpUJ+nldylmtBWCP0"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-6d8bf8b4b479137260842506acbb12717dace0823c023e08b96360e60b0840d9.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+  </head>
+
+  <body>
+    <div class="mobile-wrapper">
+      <!--======= Header =======-->
+
+      <header class="header">
+        <div class="container">
+          <span>Bem vindo de volta!</span>
+          <h1>Calculadora de gorjetas</h1>
+          <p>
+            Insira o valor total da sua conta no campo abaixo e escolha a
+            qualidade do serviço clicando em um dos emojis:
+          </p>
+          <ul>
+            <li>
+              😊 <strong>Bom</strong> (20%) – Para serviços excelentes que
+              superaram suas expectativas.
+            </li>
+            <li>
+              😐 <strong>Regular</strong> (10%) – Para serviços adequados, mas
+              sem grandes destaques.
+            </li>
+            <li>
+              😟 <strong>Ruim</strong> (5%) – Para serviços que ficaram abaixo
+              do esperado.
+            </li>
+          </ul>
+          <p>
+            Ao clicar no emoji, a gorjeta sugerida será exibida automaticamente.
+          </p>
+          <p>
+            É fácil, rápido e ajuda você a valorizar o atendimento de forma
+            justa!
+          </p>
+
+          <div class="menu-toggle" title="Menu">
+            <div>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!--======= Inputs =======-->
+      <section class="main-box" id="main-box">
+        <div class="line-column">
+          <div class="input-group">
+            <input
+              type="text"
+              id="billAmount"
+              name="billAmount"
+              required
+              placeholder=" "
+              oninput="currency_mask(this)"
+            />
+            <label for="billAmount">Valor conta (R$)</label>
+            <span class="clear-icon" onclick="clearInput()">&#10006;</span>
+          </div>
+        </div>
+
+        <div class="line-column">
+          <div class="emoji-buttons">
+            <button data-quality="0.2" title="Bom">😊</button>
+            <button data-quality="0.1" title="Regular">😐</button>
+            <button data-quality="0.05" title="Ruim">😟</button>
+          </div>
+        </div>
+
+        <div class="line-column separate"></div>
+      </section>
+
+      <!--======= Resultado do calculo da gorjeta =======-->
+
+      <section class="result-gorjeta">
+        <div class="container">
+          <h3 class="primary-title">Resultados</h3>
+
+          <div class="gorjetas-wrapper">
+            <div class="gorjeta">
+              <i class="ion ion-ios-calculator"></i>
+              <h4 class="gorjeta__point_result" id="gorjeta__point_result">
+                Gorjeta sugerida: R$ 0,00
+              </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
